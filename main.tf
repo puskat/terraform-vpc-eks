@@ -8,17 +8,6 @@ module "vpc" {
   tags = var.tags
 }
 
-output "vpc_id" {
-  value = module.vpc.vpc_id
-}
-
-output "subnet_ids" {
-  value = module.vpc.subnet_ids
-}
-
-output "route_table_id" {
-  value = module.vpc.route_table_id
-}
 
 module "eks" {
   source = "./modules/eks"
@@ -31,4 +20,6 @@ module "eks" {
   ami_id = var.ami_id
   subnet_ids = module.vpc.subnet_ids
 }
+
+
 

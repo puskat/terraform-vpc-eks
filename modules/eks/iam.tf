@@ -125,7 +125,7 @@ resource "aws_iam_openid_connect_provider" "eks" {
   url             = aws_eks_cluster.dev_cluster.identity[0].oidc[0].issuer
 }
 
-#We create another policy document so later eks can assume the role 
+#We create another policy document so later eks service accounts can assume the role 
 data "aws_iam_policy_document" "eks_cluster_autoscaler_assume_role_policy" {
   statement {
     actions = ["sts:AssumeRoleWithWebIdentity"]
